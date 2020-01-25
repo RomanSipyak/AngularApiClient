@@ -1,0 +1,18 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">FullName</th>
+      <th scope="col">Biography</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let author of service.list">
+    <td (click)="populateForm(author)">{{author.FullName}}</td>
+    <td (click)="populateForm(author)">{{author.Biography}}</td>
+      <td>
+        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(author.Id)"></i>
+      </td>
+  </tr>
+  </tbody>
+</table>

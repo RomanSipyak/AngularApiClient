@@ -12,14 +12,25 @@ import { AuthorComponent } from './authors/author/author.component';
 import { AuthorListComponent } from './authors/author-list/author-list.component';
 import { from } from 'rxjs';
 import { AuthorService } from './shared/author.service';
-
-
+import { BookComponent } from './books/book/book.component';
+import { BookListComponent } from './books/book-list/book-list.component';
+import { CategoryComponent } from './categories/category/category.component';
+import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
+import { BooksComponent } from './books/books.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryService } from './shared/category.service';
 @NgModule({
   declarations: [
     AppComponent,
     AuthorsComponent,
     AuthorComponent,
-    AuthorListComponent
+    AuthorListComponent,
+    BookComponent,
+    BookListComponent,
+    CategoryComponent,
+    CategoriesListComponent,
+    BooksComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +43,7 @@ import { AuthorService } from './shared/author.service';
   providers: 
   [
     AuthorService,
+    CategoryService,
     {provide: ToastrService, useClass: ToastrService}
   ],
   bootstrap: [AppComponent]

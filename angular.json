@@ -24,7 +24,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/@mobiscroll/angular-lite/dist/css/mobiscroll.min.css"
             ],
             "scripts": []
           },
@@ -121,6 +122,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "AngularApiClient"
 }

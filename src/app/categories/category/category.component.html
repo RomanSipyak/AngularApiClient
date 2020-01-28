@@ -4,7 +4,7 @@
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text bg-white">
-            <i class="fas fa-user-circle" [class.green-icon]="Title.valid" [class.red-icon]="Title.invalid && Title.touched"></i>
+            <i class="fas fa-ad" [class.green-icon]="Title.valid" [class.red-icon]="Title.invalid && Title.touched"></i>
           </div>
         </div>
         <input name="Title" #Title="ngModel" [(ngModel)]="service.formData.Title" class="form-control"  placeholder="Title" required>

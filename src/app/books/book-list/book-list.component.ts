@@ -20,6 +20,7 @@ export class BookListComponent implements OnInit {
   populateForm(Id) {
     this.service.getBook(Id)
       .subscribe(book => this.book = book);
+    this.service.formData = Object.assign({}, this.book);
   }
 
   onDelete(Id) {

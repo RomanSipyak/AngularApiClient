@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorService } from 'src/app/shared/author.service';
+import { AuthorService } from 'src/app/shared/author/author.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 

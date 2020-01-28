@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
 import { NgForm }            from '@angular/forms';
 import { ToastrService }     from 'ngx-toastr';
-import { CategoryService } from 'src/app/shared/category.service';
+import { CategoryService } from 'src/app/shared/category/category.service';
 
 @Component({
   selector: 'app-category',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorService } from 'src/app/shared/author.service';
-import { Author } from 'src/app/shared/author.model';
+import { AuthorService } from 'src/app/shared/author/author.service';
+import { Author } from 'src/app/shared/author/author.model';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -27,7 +27,7 @@ export class AuthorListComponent implements OnInit {
           .subscribe(res => {
             debugger;
             this.service.refreshList();
-            this.toastr.warning('Deleted successfully', 'Payment Detail Register');
+            this.toastr.warning('Deleted successfully', 'Author deleted');
           },
             err => {
               debugger;

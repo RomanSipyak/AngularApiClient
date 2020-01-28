@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from 'src/app/shared/category.service';
-import { Category } from 'src/app/shared/category.model';
+import { CategoryService } from 'src/app/shared/category/category.service';
+import { Category } from 'src/app/shared/category/category.model';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

@@ -1,1 +1,77 @@
-<p>book works!</p>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="Id" [value]="service.formData.Id">
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Write title for book</label>
+    <br>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="Title.valid"
+            [class.red-icon]="Title.invalid && Title.touched"></i>
+        </div>
+      </div>
+      <input name="Title" #Title="ngModel" [(ngModel)]="service.formData.Title" class="form-control" placeholder="Title"
+        required>
+    </div>
+    <label for="exampleFormControlSelect1">Write Description for book</label>
+    <br>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="Description.valid"
+            [class.red-icon]="Description.invalid && Description.touched"></i>
+        </div>
+      </div>
+      <textarea name="Description" #Description="ngModel" [(ngModel)]="service.formData.Description"
+        class="form-control" placeholder="Description" required></textarea>
+    </div>
+    <label for="exampleFormControlSelect1">Choose Language</label>
+    <br>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="Language.valid"
+            [class.red-icon]="Language.invalid && Language.touched"></i>
+        </div>
+      </div>
+      <select id="Language" class="validate form-control" name="Language" [(ngModel)]="service.formData.Language"
+        name="Language" #Language="ngModel" required>
+        <option *ngFor="let language of languageService.list" [ngValue]="language">{{language.Title}}</option>
+      </select>
+    </div>
+    <label for="exampleFormControlSelect1">Choose Categories for book</label>
+    <br>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="BookCategories.valid"
+            [class.red-icon]="BookCategories.invalid && BookCategories.touched"></i>
+        </div>
+      </div>
+      <select id="BookCategories" multiple="multiple" class="validate form-control" name="BookCategories"
+        [(ngModel)]="service.formData.BookCategories" name="BookCategories" #BookCategories="ngModel" required>
+        <option *ngFor="let category of categoryService.list" [ngValue]="category">{{category.Title}}</option>
+      </select>
+    </div>
+    <label for="exampleFormControlSelect1">Choose Authors for book</label>
+    <br>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="BookAuthors.valid"
+            [class.red-icon]="BookAuthors.invalid && BookAuthors.touched"></i>
+        </div>
+      </div>
+      <select id="BookAuthors" multiple="multiple" class="validate form-control" name="BookAuthors"
+        [(ngModel)]="service.formData.BookAuthors" name="BookAuthors" #BookAuthors="ngModel" required>
+        <option *ngFor="let author of authorService.list" [ngValue]="author">Author FullName: {{author.FullName}},
+          Biography: {{author.Biography.substr(1,30)}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">
+      <i class="fas fa-database"></i> Submit
+    </button>
+  </div>
+</form>

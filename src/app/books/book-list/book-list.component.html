@@ -1,1 +1,18 @@
-<p>book-list works!</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Title of Book</th>
+            <th scope="col">Descriptions</th>
+            <th scope="col">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of service.list">
+            <td (click)="populateForm(book.Id)">{{book.Title}}</td>
+            <td (click)="populateForm(book.Id)">{{book.Description}}</td>
+            <td>
+                <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(book.Id)"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>

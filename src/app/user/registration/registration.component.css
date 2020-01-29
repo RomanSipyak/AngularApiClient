@@ -1,8 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-body{
-    background-color: #ffc107;;
-  }
-  
+/* You can add global styles to this file, and also import other style files */  
   input.form-control,input.form-control:focus{
     background-color: #ffc107;
     color: black;

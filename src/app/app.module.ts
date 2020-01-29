@@ -22,6 +22,8 @@ import { CategoryService } from './shared/category/category.service';
 import { BookService } from './shared/book/book.service';
 import { LanguageService } from './shared/language/language.service';
 import { MbscModule } from '@mobiscroll/angular-lite';
+import { UserComponent } from './user/user.component';
+import { RegistrationComponent } from './user/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -34,12 +36,15 @@ import { MbscModule } from '@mobiscroll/angular-lite';
     CategoryComponent,
     CategoriesListComponent,
     BooksComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    UserComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MbscModule,

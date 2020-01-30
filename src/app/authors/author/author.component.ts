@@ -22,7 +22,7 @@ export class AuthorComponent implements OnInit {
     this.service.formData = {
       Id: 0,
       FullName: '',
-      Biography: ''
+      Biography: '',
     }
   }
 

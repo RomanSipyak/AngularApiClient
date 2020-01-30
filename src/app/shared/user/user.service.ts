@@ -37,4 +37,12 @@ export class UserService {
     };
     return this.http.post(this.rootURL + '/Identity/Register', body);
   }
+
+  login(formData) {
+     return this.http.post(this.rootURL + '/Identity/Login', formData);
+  }
+
+  getUserProfile() {
+    // return this.http.get(this.BaseURI + '/UserProfile');
+  }
 }

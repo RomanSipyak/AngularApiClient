@@ -64,7 +64,7 @@
       </div>
       <select id="BookAuthors" multiple="multiple" class="validate form-control" name="BookAuthors"
         [(ngModel)]="service.formData.BookAuthors" name="BookAuthors" #BookAuthors="ngModel" required>
-        <option *ngFor="let author of authorService.list" [ngValue]="author">Author FullName: {{author.FullName}},
+        <option  *ngFor="let author of authorService.list" [ngValue]="author" aria-selected="true" >Author FullName: {{author.FullName}},
           Biography: {{author.Biography.substr(1,30)}}</option>
       </select>
     </div>

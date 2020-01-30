@@ -5,6 +5,7 @@ import { AuthorsComponent } from './authors/authors.component';
 import { BooksComponent } from './books/books.component';
 import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './user/registration/registration.component';
+import { LoginComponent } from './user/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/user/registration', pathMatch: 'full' },
@@ -13,6 +14,9 @@ const routes: Routes = [
     children: [
       {
         path: 'registration', component: RegistrationComponent
+      },
+      {
+        path: 'login', component: LoginComponent
       }
     ]
   },

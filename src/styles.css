@@ -212,3 +212,11 @@ button.toast-close-button {
   }
 }
 /* css fot toastr */
+
+body{
+     background: url(assets/img/9bc2c1ba69bb50e2b6e196b9b38f62ce.jpg) no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+      background-size: cover;
+}

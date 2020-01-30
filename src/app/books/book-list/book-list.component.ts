@@ -21,6 +21,13 @@ export class BookListComponent implements OnInit {
     this.service.getBook(Id)
       .subscribe(book => this.book = book);
     this.service.formData = Object.assign({}, this.book);
+    // this.service.formData.BookAuthors.forEach(function (value) {
+    //   this.book.BookAuthors.forEach(function (value2) {
+    //     if (value2.Id == value.Id) {
+    //       value.Selected = "selected"
+    //     }
+    //   });
+    // });
   }
 
   onDelete(Id) {

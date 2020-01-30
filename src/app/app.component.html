@@ -42,6 +42,15 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form> -->
+    <div *ngIf="token">
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="LogOut()">LogOut</button>
+    </div>
+    <div *ngIf="!token">
+      <button class="btn btn-outline-success my-2 my-sm-0" routerLink="/user/login"
+        (click)="LogOut()">LogIn</button>
+      <button class="btn btn-outline-success my-2 my-sm-1 ml-1" routerLink="/user/registration"
+        (click)="LogOut()">Register</button>
+    </div>
   </div>
 </nav>
 

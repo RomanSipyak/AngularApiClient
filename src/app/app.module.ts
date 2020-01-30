@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 
@@ -24,6 +24,9 @@ import { LanguageService } from './shared/language/language.service';
 import { MbscModule } from '@mobiscroll/angular-lite';
 import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './user/registration/registration.component';
+import { LoginComponent } from './user/login/login.component';
+import { isPlatformBrowser } from '@angular/common';
+import { AuthInterceptor } from './shared/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { RegistrationComponent } from './user/registration/registration.componen
     BooksComponent,
     CategoriesComponent,
     UserComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +60,11 @@ import { RegistrationComponent } from './user/registration/registration.componen
       CategoryService,
       BookService,
       LanguageService,
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true 
+      },
       { provide: ToastrService, useClass: ToastrService }
     ],
   bootstrap: [AppComponent]

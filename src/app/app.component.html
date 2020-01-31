@@ -46,16 +46,147 @@
       <button class="btn btn-outline-success my-2 my-sm-0" (click)="LogOut()">LogOut</button>
     </div>
     <div *ngIf="!token">
-      <button class="btn btn-outline-success my-2 my-sm-0" routerLink="/user/login"
-        (click)="LogOut()">LogIn</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" routerLink="/user/login" (click)="LogOut()">LogIn</button>
       <button class="btn btn-outline-success my-2 my-sm-1 ml-1" routerLink="/user/registration"
         (click)="LogOut()">Register</button>
     </div>
   </div>
 </nav>
 
+
 <div class="container">
-  <router-outlet></router-outlet>
+
+  <div class='row mt-1'>
+    <div *ngIf="this.service.getUserDetails().userRoles.includes('Admin')" class='col-md-3 '>
+      <div class="card card-body bg-light">
+        <strong>Admin Panel</strong>
+      </div>
+      <div id='accordion' role='tablist' aria-multiselectable='true'>
+        <!-- 1 Panel start Here -->
+        <div class='card mt-1 '>
+          <div class='card-header' role='tab' id='headingOne'>
+            <h4 class='card-title my-auto'>
+              <a role='button btn-secondary' data-toggle='collapse' data-parent='#accordion' href='#collapseOne'
+                aria-expanded='false' aria-controls='collapseOne' class='collapsed'>
+                <span class="fas fa-plus-square pull-right" aria-hidden='true'></span> Books
+              </a>
+            </h4>
+          </div>
+          <div id='collapseOne' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingOne'
+            aria-expanded='false' style='height: 0px;'>
+            <div class='card-body pt-1 pb-1'>
+              <div class="mt-1">
+                <a role="button" class="fas fa-angle-right btn btn-primary btn-md" routerLink="/user/registration">
+                  Register</a>
+              </div>
+              <div class="mt-1">
+                <a role="button" class="fas fa-angle-right btn btn-primary btn-md" routerLink="/user/registration">
+                  Register</a>
+              </div>
+              <!-- List Group End Here -->
+            </div>
+          </div>
+        </div> <!-- 1 Panel End Here -->
+        <!-- 2 Panel start Here -->
+        <div class='card mt-1'>
+          <div class='card-header' role='tab' id='headingTwo'>
+            <h4 class='card-title my-auto'>
+              <a role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseTwo' aria-expanded='false'
+                aria-controls='collapseTwo' class='collapsed'>
+                <span class="fas fa-plus-square pull-right" aria-hidden='true'></span> Authors
+              </a>
+            </h4>
+          </div>
+          <div id='collapseTwo' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingTwo'
+            aria-expanded='false' style='height: 0px;'>
+            <div class='card-body pt-1 pb-1'>
+              <!-- List Group End Here -->
+            </div>
+          </div>
+        </div> <!-- 2 Panel End Here -->
+        <!-- 3 Panel start Here -->
+        <div class='card mt-1'>
+          <div class='card-header' role='tab' id='headingThree'>
+            <h4 class='card-title my-auto'>
+              <a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseThree'
+                aria-expanded='false' aria-controls='collapseThree'>
+                <span class="fas fa-plus-square pull-right" aria-hidden='true'></span> Categories
+              </a>
+            </h4>
+          </div>
+          <div id='collapseThree' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingThree'
+            aria-expanded='false' style='height: 0px;'>
+            <div class='card-body pt-1 pb-1'>
+              <!-- List Group End Here -->
+              <!-- List Group End Here -->
+            </div>
+          </div>
+        </div> <!-- 3 Panel End Here -->
+        <!-- 4 Panel start Here -->
+        <div class='card mt-1'>
+          <div class='card-header' role='tab' id='headingFour'>
+            <h4 class='card-title my-auto'>
+              <a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseFour'
+                aria-expanded='false' aria-controls='collapseFour'>
+                <span class="fas fa-plus-square pull-right" aria-hidden='true'></span> Languages
+              </a>
+            </h4>
+          </div>
+          <div id='collapseFour' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingFour'
+            aria-expanded='false' style='height: 0px;'>
+            <div class='card-body pt-1 pb-1'>
+              <!-- List Group End Here -->
+              <!-- List Group End Here -->
+            </div>
+          </div>
+        </div> <!-- 4 Panel End Here -->
+        <!-- 5 Panel start Here -->
+        <div class='card mt-1'>
+          <div class='card-header' role='tab' id='headingFive'>
+            <h4 class='card-title my-auto'>
+              <a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseFive'
+                aria-expanded='false' aria-controls='collapseFive'>
+                <span class="fas fa-plus-square pull-right" aria-hidden='true'></span> Users
+              </a>
+            </h4>
+          </div>
+          <div id='collapseFive' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingFive'
+            aria-expanded='false' style='height: 0px;'>
+            <div class='card-body pt-1 pb-1'>
+              <!-- List Group End Here -->
+              <!-- List Group End Here -->
+            </div>
+          </div>
+        </div> <!-- 5 Panel End Here -->
+        <!-- 6 Panel start Here -->
+        <div class='card mt-1'>
+          <div class='card-header' role='tab' id='headingSix'>
+            <h4 class='card-title my-auto'>
+              <a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseSix'
+                aria-expanded='false' aria-controls='collapseSix'>
+                <span class="fas fa-plus-square pull-right" aria-hidden='true'></span> Orders
+              </a>
+            </h4>
+          </div>
+          <div id='collapseSix' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingSix'
+            aria-expanded='false' style='height: 0px;'>
+            <div class='card-body pt-1 pb-1'>
+              <!-- List Group End Here -->
+              <!-- List Group End Here -->
+            </div>
+          </div>
+        </div> <!-- 6 Panel End Here -->
+      </div>
+    </div><!-- /.sidebar column end here -->
+    <div class='col-md-9 mx-auto'>
+      <div class='container, devise-form-1'>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <router-outlet></router-outlet> -->
 </div>
 
 

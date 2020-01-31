@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from './shared/user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: []
 })
 export class AppComponent implements OnInit {
+
+  constructor(public service: UserService){
+
+  }
+
   title = 'AngularApiClient';
   token = false;
 
@@ -16,6 +22,8 @@ export class AppComponent implements OnInit {
 
   LogOut() {
     localStorage.setItem('token', null);
+    localStorage.setItem('userDetails',JSON.stringify({Email: '',userRoles: ['']}));
+    UserService.userDetails = {Email: '',userRoles: ['']};
     this.token = false;
   }
 }

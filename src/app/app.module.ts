@@ -27,6 +27,7 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { LoginComponent } from './user/login/login.component';
 import { isPlatformBrowser } from '@angular/common';
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { UserService } from './shared/user/user.service'
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { AuthInterceptor } from './shared/auth.interceptor';
       AuthorService,
       CategoryService,
       BookService,
+      UserService,
       LanguageService,
       {
         provide: HTTP_INTERCEPTORS,

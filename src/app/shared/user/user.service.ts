@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
+import { Observable, forkJoin } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,12 @@ import { HttpClient } from "@angular/common/http";
 export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
+
+  public static userDetails = {
+    Email: '',
+    userRoles: ['']
+  }; 
+
   readonly rootURL = 'https://localhost:44393/api/v1';
 
   formModel = this.fb.group({
@@ -38,11 +45,22 @@ export class UserService {
     return this.http.post(this.rootURL + '/Identity/Register', body);
   }
 
-  login(formData) {
-     return this.http.post(this.rootURL + '/Identity/Login', formData);
+  login(formData)  {
+    return this.http.post(this.rootURL + '/Identity/Login', formData);
+    //  let loginresponse =  this.http.post(this.rootURL + '/Identity/Login', formData);
+    //  let getUserProfileresponse = this.getUserProfile();
+    //  return forkJoin([loginresponse,getUserProfileresponse])
+    
   }
 
   getUserProfile() {
-    // return this.http.get(this.BaseURI + '/UserProfile');
+    return this.http.get(this.rootURL + '/Identity/UserProfile');
+  }
+
+  getUserDetails(){
+    if(localStorage.getItem('userDetails') != 'null'){
+    UserService.userDetails = JSON.parse(localStorage.getItem('userDetails'));
+    }
+    return UserService.userDetails;
   }
 }

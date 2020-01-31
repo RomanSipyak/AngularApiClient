@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
 import { Observable, forkJoin } from 'rxjs';
+import { User } from './user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,11 @@ import { Observable, forkJoin } from 'rxjs';
 export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
-
+  list: User[];
   public static userDetails = {
     Email: '',
     userRoles: ['']
-  }; 
+  };
 
   readonly rootURL = 'https://localhost:44393/api/v1';
 
@@ -39,28 +40,34 @@ export class UserService {
 
   register() {
     var body = {
-      Email: this.formModel.value.Email,  
+      Email: this.formModel.value.Email,
       Password: this.formModel.value.Passwords.Password
     };
     return this.http.post(this.rootURL + '/Identity/Register', body);
   }
 
-  login(formData)  {
+  login(formData) {
     return this.http.post(this.rootURL + '/Identity/Login', formData);
     //  let loginresponse =  this.http.post(this.rootURL + '/Identity/Login', formData);
     //  let getUserProfileresponse = this.getUserProfile();
     //  return forkJoin([loginresponse,getUserProfileresponse])
-    
+
   }
 
   getUserProfile() {
     return this.http.get(this.rootURL + '/Identity/UserProfile');
   }
 
-  getUserDetails(){
-    if(localStorage.getItem('userDetails') != 'null'){
-    UserService.userDetails = JSON.parse(localStorage.getItem('userDetails'));
+  getUserDetails() {
+    if (localStorage.getItem('userDetails') != 'null') {
+      UserService.userDetails = JSON.parse(localStorage.getItem('userDetails'));
     }
     return UserService.userDetails;
+  }
+
+  refreshList() {
+    this.http.get(this.rootURL + '/Identity/Users')
+      .toPromise()
+      .then(res => this.list = res as User[]);
   }
 }

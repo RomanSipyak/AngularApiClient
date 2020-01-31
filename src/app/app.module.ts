@@ -27,7 +27,10 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { LoginComponent } from './user/login/login.component';
 import { isPlatformBrowser } from '@angular/common';
 import { AuthInterceptor } from './shared/auth.interceptor';
-import { UserService } from './shared/user/user.service'
+import { UserService } from './shared/user/user.service';
+import { BooksDashboardComponent } from './books/books-dashboard.component';
+import { UserListComponent } from './user/user-list.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +46,9 @@ import { UserService } from './shared/user/user.service'
     CategoriesComponent,
     UserComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    BooksDashboardComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

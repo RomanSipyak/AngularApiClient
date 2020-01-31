@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" routerLink="dashboard">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,15 +10,6 @@
       <!-- <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li> -->
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/categories" routerLinkActive="active">Category</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/authors" routerLinkActive="active">Authors</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/books" routerLinkActive="active">Books</a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/user/registration" routerLinkActive="active">Register</a>
       </li>
@@ -76,12 +67,8 @@
             aria-expanded='false' style='height: 0px;'>
             <div class='card-body pt-1 pb-1'>
               <div class="mt-1">
-                <a role="button" class="fas fa-angle-right btn btn-primary btn-md" routerLink="/user/registration">
-                  Register</a>
-              </div>
-              <div class="mt-1">
-                <a role="button" class="fas fa-angle-right btn btn-primary btn-md" routerLink="/user/registration">
-                  Register</a>
+                <a role="button" class="fas fa-angle-right btn btn-primary btn-md" routerLink="/books">
+                  Book Table</a>
               </div>
               <!-- List Group End Here -->
             </div>
@@ -100,6 +87,10 @@
           <div id='collapseTwo' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingTwo'
             aria-expanded='false' style='height: 0px;'>
             <div class='card-body pt-1 pb-1'>
+              <div class="mt-1">
+                <a role="button" class="fas fa-angle-right btn btn-primary btn-md" routerLink="/authors">
+                  Authors Table</a>
+              </div>
               <!-- List Group End Here -->
             </div>
           </div>
@@ -117,7 +108,10 @@
           <div id='collapseThree' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingThree'
             aria-expanded='false' style='height: 0px;'>
             <div class='card-body pt-1 pb-1'>
-              <!-- List Group End Here -->
+              <div class="mt-1">
+                <a role="button" class="fas fa-angle-right btn btn-primary btn-md" routerLink="/categories">
+                  Categories Table</a>
+              </div>
               <!-- List Group End Here -->
             </div>
           </div>
@@ -135,7 +129,10 @@
           <div id='collapseFour' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingFour'
             aria-expanded='false' style='height: 0px;'>
             <div class='card-body pt-1 pb-1'>
-              <!-- List Group End Here -->
+              <!-- <div class="mt-1">
+                <a role="button" class="fas fa-angle-right btn btn-primary btn-md" routerLink="/languages">
+                  Language Table</a>
+              </div> -->
               <!-- List Group End Here -->
             </div>
           </div>
@@ -153,7 +150,10 @@
           <div id='collapseFive' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingFive'
             aria-expanded='false' style='height: 0px;'>
             <div class='card-body pt-1 pb-1'>
-              <!-- List Group End Here -->
+              <div class="mt-1">
+                <a role="button" class="fas fa-angle-right btn btn-primary btn-md" routerLink="/allUsers">
+                  Users Table</a>
+              </div>
               <!-- List Group End Here -->
             </div>
           </div>
@@ -171,15 +171,19 @@
           <div id='collapseSix' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingSix'
             aria-expanded='false' style='height: 0px;'>
             <div class='card-body pt-1 pb-1'>
-              <!-- List Group End Here -->
+              <!-- <div class="mt-1">
+                <a role="button" class="fas fa-angle-right btn btn-primary btn-md" routerLink="/user/registration">
+                  Register</a>
+              </div> -->
               <!-- List Group End Here -->
             </div>
           </div>
         </div> <!-- 6 Panel End Here -->
       </div>
     </div><!-- /.sidebar column end here -->
-    <div class='col-md-9 mx-auto'>
-      <div class='container, devise-form-1'>
+    <div class='col-md-9 mx-auto' >
+      <div class='container devise-form-1 p-1' style="border-radius: 8px;
+      background-color: #f0f1ffc2;">
         <router-outlet></router-outlet>
       </div>
     </div>
@@ -196,20 +200,46 @@
 
 
 
-<div class="container">
+<!-- <div class="container"> -->
 
   <!-- <app-authors></app-authors> -->
-  <h1 class="title">Angular Router</h1>
+  <!-- <h1 class="title">Angular Router</h1>
   <nav>
-    <a [routerLink]="[{ outlets: { popup: ['category'] } }]">Contact</a>
+    <a [routerLink]="[{ outlets: { popup: ['category'] } }]">Contact</a> -->
     <!-- <a routerLink="/category" routerLinkActive="active">Crisis Center</a> -->
     <!-- <a routerLink="/superheroes" routerLinkActive="active">Heroes</a>
   <a routerLink="/admin" routerLinkActive="active">Admin</a>
   <a routerLink="/login" routerLinkActive="active">Login</a>
   <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a> -->
-  </nav>
+  <!-- </nav> -->
   <!-- <div [@routeAnimation]="getAnimationData(routerOutlet)">
   <router-outlet #routerOutlet="outlet"></router-outlet>
 </div> -->
-  <router-outlet name="popup"></router-outlet>
-</div>
+  <!-- <router-outlet name="popup"></router-outlet>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <div class="row">
+     <div class="col-md-4">
+        <div class="card mb-4 text-white bg-primary mb-4 shadow-sm h-md-60">
+           <img class="card-img-top d-flex flex-column align-items-start" src="../assets/img/9bc2c1ba69bb50e2b6e196b9b38f62ce.jpg"  style="max-height: 300px" alt="Card image cap">
+           <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <strong class="card-title">Trice: 123</strong>
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="http://www.jquery2dotnet.com/" class="btn btn-outline-light btn-sm">Go somewhere</a>
+           </div>
+        </div>
+     </div>
+</div> -->

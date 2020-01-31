@@ -6,9 +6,11 @@ import { BooksComponent } from './books/books.component';
 import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { LoginComponent } from './user/login/login.component';
+import { BooksDashboardComponent } from './books/books-dashboard.component';
+import { UserListComponent } from './user/user-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/user/registration', pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   {
     path: 'user', component: UserComponent,
     children: [
@@ -28,6 +30,12 @@ const routes: Routes = [
   },
   {
     path: 'books', component: BooksComponent
+  },
+  {
+    path: 'dashboard', component: BooksDashboardComponent
+  },
+  {
+    path: 'allUsers', component : UserListComponent
   }
 ];
 @NgModule({

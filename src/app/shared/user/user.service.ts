@@ -65,6 +65,10 @@ export class UserService {
     return UserService.userDetails;
   }
 
+  deleteUserByEmail(email){
+    return this.http.delete(this.rootURL + '/Identity/Users/Delete/' + email);
+  }
+
   refreshList() {
     this.http.get(this.rootURL + '/Identity/Users')
       .toPromise()

@@ -30,18 +30,18 @@ export class UserListComponent implements OnInit {
   //   // });
   // }
 
-  // onDelete(Id) {
-  //   if (confirm('Are you sure to delete this record ?')) {
-  //     this.service.deleteBook(Id)
-  //       .subscribe(res => {
-  //         debugger;
-  //         this.service.refreshList();
-  //         this.toastr.warning('Deleted successfully', 'Book deleted');
-  //       },
-  //         err => {
-  //           debugger;
-  //           console.log(err);
-  //         });
-  //   }
-  // }
+  onDelete(email) {
+    if (confirm('Are you sure to delete this record ?')) {
+      this.service.deleteUserByEmail(email)
+        .subscribe(res => {
+          debugger;
+          this.service.refreshList();
+          this.toastr.warning('Deleted successfully', 'User deleted');
+        },
+          err => {
+            debugger;
+            console.log(err);
+          });
+    }
+  }
 }

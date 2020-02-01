@@ -3,6 +3,7 @@
         <tr>
             <th scope="col">Title of Book</th>
             <th scope="col">Descriptions</th>
+            <th scope="col">Price For Book</th>
             <th scope="col">Options</th>
         </tr>
     </thead>
@@ -10,6 +11,7 @@
         <tr *ngFor="let book of service.list">
             <td (click)="populateForm(book.Id)">{{book.Title}}</td>
             <td (click)="populateForm(book.Id)">{{book.Description}}</td>
+            <td (click)="populateForm(book.Id)">{{book.Price}}</td>
             <td>
                 <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(book.Id)"></i>
             </td>

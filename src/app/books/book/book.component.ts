@@ -6,6 +6,7 @@ import { CategoryService } from 'src/app/shared/category/category.service';
 import { BookService } from 'src/app/shared/book/book.service';
 import { AuthorService } from 'src/app/shared/author/author.service';
 import { LanguageService } from 'src/app/shared/language/language.service';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-book',
@@ -34,6 +35,7 @@ export class BookComponent implements OnInit {
     this.service.formData = {
       Id: 0,
       Title: '',
+      Price: 0,
       Description: '',
       Language: null,
       BookAuthors: this.authorService.list,

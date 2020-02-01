@@ -13,6 +13,18 @@
       <input name="Title" #Title="ngModel" [(ngModel)]="service.formData.Title" class="form-control" placeholder="Title"
         required>
     </div>
+    <label for="exampleFormControlSelect1">Price</label>
+    <br>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="far fa-money-bill-alt" [class.green-icon]="Pricevalid"
+            [class.red-icon]="Priceinvalid && Pricetouched"></i>
+        </div>
+      </div>
+      <input name="Price" #Price="ngModel" [(ngModel)]="service.formData.Price" class="form-control" placeholder="Price"
+        required>
+    </div>
     <label for="exampleFormControlSelect1">Write Description for book</label>
     <br>
     <div class="input-group">

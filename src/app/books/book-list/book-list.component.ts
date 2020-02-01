@@ -19,8 +19,15 @@ export class BookListComponent implements OnInit {
 
   populateForm(Id) {
     this.service.getBook(Id)
-      .subscribe(book => this.book = book);
-    this.service.formData = Object.assign({}, this.book);
+        .subscribe(res => {
+          debugger;
+          this.book = res,
+        this.service.formData = Object.assign({}, this.book);
+        },
+          err => {
+            debugger;
+            console.log(err);
+          });
     // this.service.formData.BookAuthors.forEach(function (value) {
     //   this.book.BookAuthors.forEach(function (value2) {
     //     if (value2.Id == value.Id) {

@@ -1,16 +1,16 @@
 <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Title Of Category</th>
-        <th scope="col">Options</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let category of service.list">
-      <td (click)="populateForm(category)">{{category.Title}}</td> 
-        <td>
-          <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(category.Id)"></i>
-        </td>
+  <thead>
+    <tr>
+      <th scope="col">Title Of Category</th>
+      <th scope="col">Options</th>
     </tr>
-    </tbody>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of service.list">
+      <td (click)="populateForm(category)">{{category.Title}}</td>
+      <td>
+        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(category.Id)"></i>
+      </td>
+    </tr>
+  </tbody>
 </table>

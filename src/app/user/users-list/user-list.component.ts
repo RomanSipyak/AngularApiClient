@@ -17,18 +17,13 @@ export class UserListComponent implements OnInit {
     this.service.refreshList();
   }
 
-  // populateForm(Id) {
-  //   this.service.getBook(Id)
-  //     .subscribe(book => this.book = book);
-  //   this.service.formData = Object.assign({}, this.book);
-  //   // this.service.formData.BookAuthors.forEach(function (value) {
-  //   //   this.book.BookAuthors.forEach(function (value2) {
-  //   //     if (value2.Id == value.Id) {
-  //   //       value.Selected = "selected"
-  //   //     }
-  //   //   });
-  //   // });
-  // }
+
+  populateForm(user: User) {
+    var copyUser = Object.assign({}, user);
+    copyUser.userRoles = [];
+    this.service.formData = copyUser;
+  }
+
 
   onDelete(email) {
     if (confirm('Are you sure to delete this record ?')) {

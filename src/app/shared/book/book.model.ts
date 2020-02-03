@@ -4,10 +4,10 @@ import { Language } from '../Language/language.model';
 
 export class Book {
     Id: number;
-    Title: string;  
+    Title: string;
     Price: number;
     Description: string;
     Language: Language;
     BookCategories: Category[];
-    BookAuthors : Author[];
+    BookAuthors: Author[];
 }

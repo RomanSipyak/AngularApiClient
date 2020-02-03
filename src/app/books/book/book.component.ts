@@ -35,7 +35,7 @@ export class BookComponent implements OnInit {
     this.service.formData = {
       Id: 0,
       Title: '',
-      Price: 0,
+      Price: null,
       Description: '',
       Language: null,
       BookAuthors: this.authorService.list,
@@ -44,32 +44,23 @@ export class BookComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    // if(this.service.list.find(x => x.Title == this.service.formData.Title))
-    // {
-    //   this.toastr.error('Category with same title already exist ', 'Change title');
-    // }
-    // else
-    // {
     if (this.service.formData.Id == 0) {
       this.insertRecord(form);
     }
     else {
       this.updateRecord(form);
     }
-    // }
   }
 
   insertRecord(form: NgForm) {
     this.service.postBook().subscribe(
       res => {
-        debugger;
         this.resetForm(form);
         this.service.refreshList();
-        this.toastr.success('submitted succesfully', 'Category Added');
+        this.toastr.success('Submitted succesfully', 'Book Added');
       },
       err => {
-        debugger;
-        console.log(err);
+        this.toastr.error(err.message);
       }
     )
   }
@@ -82,7 +73,7 @@ export class BookComponent implements OnInit {
         this.service.refreshList();
       },
       err => {
-        console.log(err);
+        this.toastr.error(err.message);
       }
     )
   }

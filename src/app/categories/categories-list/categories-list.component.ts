@@ -14,31 +14,28 @@ export class CategoriesListComponent implements OnInit {
 
   ngOnInit() {
     this.service.refreshList();
- }
+  }
 
- populateForm(category: Category){
-   this.service.formData = Object.assign({},category);
- }
+  populateForm(category: Category) {
+    this.service.formData = Object.assign({}, category);
+  }
 
- onDelete(Id)
- {
-     if (confirm('Are you sure to delete this record ?')) {
-       this.service.deleteCategory(Id)
-         .subscribe(res => {
-           debugger;
-           this.service.refreshList();
-           this.toastr.warning('Deleted successfully', 'Payment Detail Register');
-         },
-           err => {
-             debugger;
-             console.log(err);
-           });
-     }
- }
+  onDelete(Id) {
+    if (confirm('Are you sure to delete this record ?')) {
+      this.service.deleteCategory(Id)
+        .subscribe(res => {
+          this.service.refreshList();
+          this.toastr.warning('Deleted successfully', 'Category was Deleted');
+        },
+          err => {
+            this.toastr.error(err.message);
+          });
+    }
+  }
 }
 
 
 
 
-  
+
 

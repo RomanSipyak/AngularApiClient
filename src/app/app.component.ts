@@ -8,7 +8,7 @@ import { UserService } from './shared/user/user.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(public service: UserService){
+  constructor(public service: UserService) {
 
   }
 
@@ -22,8 +22,8 @@ export class AppComponent implements OnInit {
 
   LogOut() {
     localStorage.setItem('token', null);
-    localStorage.setItem('userDetails',JSON.stringify({Email: '',userRoles: ['']}));
-    UserService.userDetails = {Email: '',userRoles: ['']};
+    localStorage.setItem('userDetails', JSON.stringify({ Email: '', userRoles: [''] }));
+    UserService.userDetails = { Email: '', userRoles: [''] };
     this.token = false;
   }
 }

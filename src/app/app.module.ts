@@ -22,15 +22,16 @@ import { CategoryService } from './shared/category/category.service';
 import { BookService } from './shared/book/book.service';
 import { LanguageService } from './shared/language/language.service';
 import { MbscModule } from '@mobiscroll/angular-lite';
-import { UserComponent } from './user/user.component';
+import { UserComponent } from './user/user/user.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { LoginComponent } from './user/login/login.component';
 import { isPlatformBrowser } from '@angular/common';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { UserService } from './shared/user/user.service';
 import { BooksDashboardComponent } from './books/books-dashboard.component';
-import { UserListComponent } from './user/user-list.component';
-
+import { UserListComponent } from './user/users-list/user-list.component';
+import { UserLRComponent } from './user/userLR/userLR.component'
+import { UsersComponent } from './user/users.component'
 
 @NgModule({
   declarations: [
@@ -48,7 +49,9 @@ import { UserListComponent } from './user/user-list.component';
     RegistrationComponent,
     LoginComponent,
     BooksDashboardComponent,
-    UserListComponent
+    UserListComponent,
+    UserLRComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,7 @@ import { UserListComponent } from './user/user-list.component';
       {
         provide: HTTP_INTERCEPTORS,
         useClass: AuthInterceptor,
-        multi: true 
+        multi: true
       },
       { provide: ToastrService, useClass: ToastrService }
     ],

@@ -10,29 +10,26 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthorListComponent implements OnInit {
 
-  constructor(private service: AuthorService,private toastr: ToastrService) { }
+  constructor(private service: AuthorService, private toastr: ToastrService) { }
 
   ngOnInit() {
-     this.service.refreshList();
+    this.service.refreshList();
   }
 
-  populateForm(author: Author){
-    this.service.formData = Object.assign({},author);
+  populateForm(author: Author) {
+    this.service.formData = Object.assign({}, author);
   }
 
-  onDelete(Id)
-  {
-      if (confirm('Are you sure to delete this record ?')) {
-        this.service.deleteAuthor(Id)
-          .subscribe(res => {
-            debugger;
-            this.service.refreshList();
-            this.toastr.warning('Deleted successfully', 'Author deleted');
-          },
-            err => {
-              debugger;
-              console.log(err);
-            });
-      }
+  onDelete(Id) {
+    if (confirm('Are you sure to delete this record ?')) {
+      this.service.deleteAuthor(Id)
+        .subscribe(res => {
+          this.service.refreshList();
+          this.toastr.warning('Deleted successfully', 'Author deleted');
+        },
+          err => {
+            this.toastr.error(err.message);
+          });
+    }
   }
 }

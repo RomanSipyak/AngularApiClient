@@ -10,12 +10,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthorComponent implements OnInit {
 
-  constructor(private service:AuthorService, private toastr: ToastrService ) { }
-   
+  constructor(private service: AuthorService, private toastr: ToastrService) { }
+
   ngOnInit() {
     this.resetForm();
   }
-  
+
   resetForm(form?: NgForm) {
     if (form != null)
       form.form.reset();
@@ -27,27 +27,23 @@ export class AuthorComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (this.service.formData.Id == 0)
-    {
+    if (this.service.formData.Id == 0) {
       this.insertRecord(form);
     }
-    else 
-    {
+    else {
       this.updateRecord(form);
-    }    
+    }
   }
 
   insertRecord(form: NgForm) {
     this.service.postAuthor().subscribe(
       res => {
-        debugger;
         this.resetForm(form);
         this.service.refreshList();
-        this.toastr.success('submitted succesfully', 'Author Added');
+        this.toastr.success('Submitted succesfully', 'Author Added');
       },
       err => {
-        debugger;
-        console.log(err);
+        this.toastr.error(err.message);
       }
     )
   }
@@ -60,7 +56,7 @@ export class AuthorComponent implements OnInit {
         this.service.refreshList();
       },
       err => {
-        console.log(err);
+        this.toastr.error(err.message);
       }
     )
   }

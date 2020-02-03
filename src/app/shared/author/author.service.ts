@@ -8,24 +8,24 @@ import { HttpClient } from "@angular/common/http";
 export class AuthorService {
   formData: Author;
   readonly rootURL = 'https://localhost:44393/api/v1';
-  list : Author[];
+  list: Author[];
   constructor(private http: HttpClient) { }
 
   postAuthor() {
     return this.http.post(this.rootURL + '/Authors', this.formData);
   }
 
-  putAuthor(){
-    return this.http.put(this.rootURL + '/Authors/'+ this.formData.Id, this.formData);
+  putAuthor() {
+    return this.http.put(this.rootURL + '/Authors/' + this.formData.Id, this.formData);
   }
 
-  deleteAuthor(Id){
-    return this.http.delete(this.rootURL + '/Authors/'+ Id);
+  deleteAuthor(Id) {
+    return this.http.delete(this.rootURL + '/Authors/' + Id);
   }
 
-  refreshList(){
+  refreshList() {
     this.http.get(this.rootURL + '/Authors')
-    .toPromise()
-    .then(res => this.list = res as Author[]);
+      .toPromise()
+      .then(res => this.list = res as Author[]);
   }
 }

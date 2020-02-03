@@ -1,0 +1,62 @@
+<!-- <form [formGroup]="userService.formModelForUpdate" autocomplete="off" (submit)="onSubmit()">
+    <div class="form-group required">
+        <label>Email</label>
+        <input class="form-control" formControlName="Email">
+        <label class="text-danger"
+            *ngIf="userService.formModelForUpdate.get('Email').touched && userService.formModelForUpdate.get('Email').errors?.email">Invalid
+            email
+            address.</label>
+        <label class="text-danger"
+            *ngIf="userService.formModelForUpdate.get('Email').touched && userService.formModelForUpdate.get('Email').errors?.required">This
+            field
+            is
+            mandatory.</label>
+    </div>
+    <div class="form-group">
+        <label>Choose Categories for book</label>
+        <br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="far fa-caret-square-right" [class.green-icon]="Roles.valid"
+                        [class.red-icon]="Roles.invalid && Roles.touched"></i>
+                </div> 
+            </div>
+            <select id="Roles" multiple="multiple" class="validate form-control" formControlName="Roles" required>
+                <option *ngFor="let role of userService.listOfRoles" [ngValue]="role">{{role}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-8 offset-md-2">
+            <button type="submit" class="btn btn-lg btn-block" [disabled]="!userService.formModelForUpdate.valid">Change</button>
+        </div>
+    </div>
+</form> -->
+
+
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="Email" [value]="userService.formData.Email" required>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Email: {{userService.formData.Email}}</label>
+    <br>
+    <label for="exampleFormControlSelect1">Choose Roles for book</label>
+    <br>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="far fa-caret-square-right"></i>
+        </div>
+      </div>
+      <select id="userRoles" multiple="multiple" class="validate form-control"
+        [(ngModel)]="userService.formData.userRoles" name="userRoles" #userRoles="ngModel">
+        <option *ngFor="let role of userService.listOfRoles" [ngValue]="role">{{role.Title}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">
+      <i class="fas fa-database"></i> Submit
+    </button>
+  </div>
+</form>

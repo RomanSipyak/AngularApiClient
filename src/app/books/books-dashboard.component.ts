@@ -15,5 +15,5 @@ export class BooksDashboardComponent implements OnInit {
 
   ngOnInit() {
     this.service.refreshList();
-  } 
+  }
 }

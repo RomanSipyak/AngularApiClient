@@ -12,7 +12,7 @@ export class BookService {
     formData: Book;
     readonly rootURL = 'https://localhost:44393/api/v1';
     list: Book[];
-    constructor(private http: HttpClient,private messageService : MessageService) { }
+    constructor(private http: HttpClient, private messageService: MessageService) { }
 
     postBook() {
         return this.http.post(this.rootURL + '/Books', this.formData);

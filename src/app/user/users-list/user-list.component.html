@@ -8,8 +8,9 @@
     </thead>
     <tbody>
         <tr *ngFor="let user of service.list">
-            <td>{{user.Email}}</td>
-            <td>{{user.userRoles}}</td>
+            <td (click)="populateForm(user)">{{user.Email}}</td>
+
+            <td (click)="populateForm(user)"><span *ngFor="let role of user.userRoles">{{role.Title}} </span></td>
             <td>
                 <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(user.Email)"></i>
             </td>

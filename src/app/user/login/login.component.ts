@@ -9,7 +9,7 @@ import { concatAll } from 'rxjs/operators';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['../user.component.css']
+  styleUrls: ['../../user/user/user.component.css']
 })
 export class LoginComponent implements OnInit {
   public loginresponse: any;
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('token') != 'null') {
-      this.router.navigateByUrl('/authors');
+      this.router.navigateByUrl('/dashboard');
     }
   }
 
@@ -36,16 +36,16 @@ export class LoginComponent implements OnInit {
       this.service.getUserProfile().subscribe(response2 => {
         this.getUserProfileresponse = response2;
         UserService.userDetails = this.getUserProfileresponse;
-      localStorage.setItem('userDetails',JSON.stringify(UserService.userDetails));
+        localStorage.setItem('userDetails', JSON.stringify(UserService.userDetails));
       },
-      err => {
-        if (err.status == 400)
-          this.toastr.error('Incorrect email or password.', 'Authentication failed.');
-        else
-          console.log(err);
-      });
+        err => {
+          if (err.status == 400)
+            this.toastr.error('Incorrect email or password.', 'Authentication failed.');
+          else
+            console.log(err);
+        });
     },
-    err => {
+      err => {
         if (err.status == 400)
           this.toastr.error('Incorrect email or password.', 'Authentication failed.');
         else

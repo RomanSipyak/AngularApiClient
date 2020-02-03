@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['../user.component.css']
+  styleUrls: ['../../user/user/user.component.css']
 })
 export class RegistrationComponent implements OnInit {
 
@@ -18,16 +18,16 @@ export class RegistrationComponent implements OnInit {
   onSubmit() {
     this.service.register().subscribe(
       (res: any) => {
-          this.service.formModel.reset();
-          this.toastr.success('New user created!', 'Registration successful.');
+        this.service.formModel.reset();
+        this.toastr.success('New user created!', 'Registration successful.');
 
       },
       err => {
-        
-          err.error.Errors.forEach(element => {
-            this.toastr.error(element);
-          });
-       
+
+        err.error.Errors.forEach(element => {
+          this.toastr.error(element);
+        });
+
         console.log(err);
       }
     );

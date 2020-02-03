@@ -3,6 +3,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
 import { Observable, forkJoin } from 'rxjs';
 import { User } from './user.model';
+import { Role } from './role.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,24 @@ import { User } from './user.model';
 export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
+  listOfRoles : Role[];
+  formData: User;
   list: User[];
+
   public static userDetails = {
     Email: '',
     userRoles: ['']
   };
 
+ 
+
   readonly rootURL = 'https://localhost:44393/api/v1';
+
+
+  // formModelForUpdate = this.fb.group({
+  //   Email: ['', [Validators.required, Validators.email]],
+  //   Roles: ['']
+  // });
 
   formModel = this.fb.group({
     Email: ['', [Validators.required, Validators.email]],
@@ -46,6 +58,14 @@ export class UserService {
     return this.http.post(this.rootURL + '/Identity/Register', body);
   }
 
+  updateUser(){
+    // var body = {
+    //   Email: this.formModelForUpdate.value.Email,
+    //   Roles: this.formModelForUpdate.value.Roles
+    // };
+    return this.http.put(this.rootURL + '/Identity/UpdateUser', this.formData);
+  }
+
   login(formData) {
     return this.http.post(this.rootURL + '/Identity/Login', formData);
     //  let loginresponse =  this.http.post(this.rootURL + '/Identity/Login', formData);
@@ -73,5 +93,11 @@ export class UserService {
     this.http.get(this.rootURL + '/Identity/Users')
       .toPromise()
       .then(res => this.list = res as User[]);
+  }
+
+  refreshListOfRoles(){
+    this.http.get(this.rootURL + '/Identity/Roles')
+    .toPromise()
+    .then(res => this.listOfRoles = res as Role[]);
   }
 }

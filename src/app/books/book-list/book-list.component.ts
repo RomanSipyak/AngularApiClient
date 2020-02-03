@@ -19,15 +19,15 @@ export class BookListComponent implements OnInit {
 
   populateForm(Id) {
     this.service.getBook(Id)
-        .subscribe(res => {
+      .subscribe(res => {
+        debugger;
+        this.book = res,
+          this.service.formData = Object.assign({}, this.book);
+      },
+        err => {
           debugger;
-          this.book = res,
-        this.service.formData = Object.assign({}, this.book);
-        },
-          err => {
-            debugger;
-            console.log(err);
-          });
+          console.log(err);
+        });
     // this.service.formData.BookAuthors.forEach(function (value) {
     //   this.book.BookAuthors.forEach(function (value2) {
     //     if (value2.Id == value.Id) {
@@ -41,13 +41,11 @@ export class BookListComponent implements OnInit {
     if (confirm('Are you sure to delete this record ?')) {
       this.service.deleteBook(Id)
         .subscribe(res => {
-          debugger;
           this.service.refreshList();
           this.toastr.warning('Deleted successfully', 'Book deleted');
         },
           err => {
-            debugger;
-            console.log(err);
+            this.toastr.error(err.message);
           });
     }
   }
